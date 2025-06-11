@@ -1,11 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Layout } from './components/Layout';
-import { QRcodeGenerator } from './components/QRcodeGenerator';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
-import { QRcodeScanner } from './components/QRcodeScanner';
+
+// import { router } from './routes';
+// import { RouterProvider } from 'react-router-dom';
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    // <QRcodeGenerator/>
-    <QRcodeScanner/>
-);
+   
+    // <RouterProvider router={router} />
+    <BrowserRouter>
+        <Layout/>     
+    </BrowserRouter>
+  
+); 

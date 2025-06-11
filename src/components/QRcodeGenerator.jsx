@@ -1,5 +1,6 @@
 import {QRCodeSVG} from 'qrcode.react';
 import { useState } from 'react';
+import { GENERATE_DATA } from '../constants';
 
 export const QRcodeGenerator = () => {
     const [text, setText] = useState('Hello, QR Code!');
@@ -11,13 +12,17 @@ export const QRcodeGenerator = () => {
         setResult('')
     }
     const handleClick = ()=>{
-        
+        const prevData = JSON.parse(localStorage.getItem(GENERATE_DATA) || '[]');
+        localStorage.setItem(
+            GENERATE_DATA,
+            JSON.stringify([...prevData, text])
+        );
         setResult(text);
         setText('');
         console.log(`QR Code generated: ${result}`);
     }
     return (
-        <div className='flex flex-col items-center min-h-screen bg-gray-100 p-4 gap-4'>
+        <div className='flex flex-col items-center min-h-screen p-4 gap-4'>
             <input 
                 type="text"
                 value={text}
@@ -27,7 +32,7 @@ export const QRcodeGenerator = () => {
                 />
             <button 
                 onClick={handleClick}
-                className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
+                className= 'bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-500'
                 >Generate</button>
             {result && <QRCodeSVG value={result} />}
         </div>
