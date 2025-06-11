@@ -1,8 +1,10 @@
 {
   "name": "generateqrcode",
+  
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://username.github.io/generate-gr-code",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
