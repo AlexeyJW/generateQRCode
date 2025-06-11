@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [react(),
             tailwindcss(),
   ],
-  base: '/generateQRCode'
+  base: '/generate-qr-code/',
 })
