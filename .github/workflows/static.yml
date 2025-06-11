@@ -9,12 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: npm install
-      - run: npm run build
+      - run: npm install && npm run build
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v2  # 👈 Тільки v2!
         with:
-          path: ./dist  # Папка після збірки
+          path: ./dist  # Ваша папка зі збіркою
 
   deploy:
     needs: build
